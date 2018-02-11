@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CHURCH OF YEEZUS</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+</head>
+<body>
+
+
+<!--
+	Username input. 
+	Submitting name executes setClientName function,
+	emitting the 'setClientName' message to the server over sockets.
+-->
+
+
+<div id = "page01" style="padding:10px;text-align: center; color: #4f5a9e; height: 1000px; overflow-y: scroll">
+	<div style=" width:100%; top: 100px; position:relative; bottom:700;"> 
+		
+	<form action="javascript:setClientName();"  id="alias">
+	
+	<h1> Welcome to creative poWer</h1>
+	<br>
+		<div class="container">
+  		<img src="assets/create.png" alt="Avatar" class="image">
+  			<div class="overlay">
+  			<button  action="javascript:hidePage();" class="button">ENTER</button>
+  	<!-- onClick change the index of your page1 -->
+		<!--   	<script> 
+  		function myFunction(){
+  			document.getElementById("page01").style.zIndex = "-1";
+  		}
+  	</script> -->
+    			<div class="text">Join Now</div>
+  			</div>
+		</div>
+	<input type="text" name="Nickname" value="What's Your Name?">
+	<br>
+	</form>
+	</div>
+</div>
+
+
+
+
+
+<div class="rightcolumn">
+<h2>Your Subscriptions</h2>
+<p>These are a few of your favourite things...</p>
+</div>
+
+<!-- Chatroom          -->
+
+
+<div id="chatroom" >
+	<h1>Currently...</h1>
+	<div style="font-size: 25px;padding:10px; height: 1000px; overflow-y: scroll" id=chatroom>You have entered 
+	</div>
+	<div style=" width:60%; position:absolute; bottom:0;"> 
+		
+
+
+		<form action="javascript:clientMessage();" id="inputMessage">
+			<input id = "userInput" style="
+				margin: 10px;
+                bottom: 0; 
+                width: 90%; 
+                
+                padding:5px;" type="text" name="messageContent" value="Ask a question, leave a response" >
+           	<input type="submit" value="Send">
+
+		</form>
+	</div>
+	
+		
+
+<!-- Username input                -->
+
+
+
+<script src = "/socket.io/socket.io.js"></script>
+<script src = "/main.js"></script>
+
+
+
+</body>
+</html>
