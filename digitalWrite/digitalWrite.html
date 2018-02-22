@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Canvas animation based on https://www.kirupa.com/snippets/examples/simple_canvas_animation.htm -->
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	 <link rel="stylesheet" type="text" href="style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" type="text/css" />
+	<!-- jquery for enter key press -->      
+<script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+
+<script src = "/socket.io/socket.io.js"></script>
+
+<title>AnalogRead Example</title>
+<style>
+canvas {
+	border: 3px #CCC solid;
+}
+</style>
+</head>
+
+<body >
+
+  <div id="output"><h1>tell me about your day</h1></div>
+
+      
+<div id="container">
+    <input type="text" id="input" value="">
+
+</div>
+
+
+
+
+
+<script> 
+	var socket = io.connect('http://localhost:8080');
+	
+	 socket.on('initialMessage', function (data){
+	 		
+	 		window.onkeydown = function(){
+							socket.emit('1');
+							console.log('1');
+			}
+					// this event fires when we release our mouse
+			window.onkeyup = function(){
+						socket.emit('0');
+						console.log('0');
+			}
+	 });
+		
+    </script>
+
+
+</body></html>

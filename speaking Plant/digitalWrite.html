@@ -7,12 +7,14 @@
  
   <title>Working Plant Chat</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" type="text/css" />
    
   
 </head>
-
-<body translate="no">
+ <!-- javaScript file -->      
+ 
+<body >
 
   <div id="output"><h1>tell me about your day</h1></div>
 
@@ -22,11 +24,12 @@
 
 </div>
 
+ <script src="server.js"></script>
+
 <!-- jquery for enter key press -->      
 <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
-  
- <!-- javaScript file -->      
- <script src="server.js"></script>
+
+
 
  <script src = "/socket.io/socket.io.js"></script>
 <script> 
@@ -34,16 +37,16 @@
 	
 	 socket.on('initialMessage', function (data){
 	 		
-	 		if input.includes("sad") = function(){
-							socket.emit('1');
-							console.log('1');
-			}
-					// this event fires when we release our mouse
-			if input.includes("happy") = function(){
-						socket.emit('0');
-						console.log('0');
+	 	// 	if input.includes("sad") = function(){
+			// 				socket.emit('1');
+			// 				console.log('1');
+			// }
+			// 		// this event fires when we release our mouse
+			// if input.includes("happy") = function(){
+			// 			socket.emit('0');
+			// 			console.log('0');
 
-			}
+			// }
 
 	 });
 

@@ -5,7 +5,8 @@ var output;
 
 
 function chat() { 
-    output = document.getElementById('output'); 
+
+	output = document.getElementById("output");	
     var input = document.getElementById("input").value;
     var sad = input.includes("sad");
     var happy = input.includes("happy");
@@ -13,7 +14,7 @@ function chat() {
 	
     if (questionNum == 0){
 			if (sad){
-    output.innerHTML = '<h1>im sorry </h1>';
+    		output.innerHTML = '<h1>im sorry </h1>';
 			}	
 			else if (input.match(/sad/g)==2){
 				output.innerHTML = '<h1>that is VERY sad </h1>'
@@ -27,15 +28,7 @@ function chat() {
 };
 
 
-//key event https://stackoverflow.com/questions/18160342/jquery-how-to-trigger-click-event-on-pressing-enter-key
-// $(document).keypress(function(e) {
-//   if (e.which == 13) {
-//     chat();	
-// 		questionNum == 0;
-//   }
-// });
-
-
+//Lists Serialports available
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
@@ -44,39 +37,39 @@ var port = process.env.PORT || 8080;
 var SerialPort = require('serialport');
 var serialVal;
 
-var mySerialPort = new SerialPort('/dev/tty.usbmodem1451', { //paste your port path here
+var mySerialPort = new SerialPort('/dev/tty.usbmodem1461', { //paste your port path here
   parser: new SerialPort.parsers.Readline('\n')
 });
 
 
 
 server.listen(port, function(){
-  console.log('Server listening on ' + port);
+	console.log('Server listening on ' + port);
 });
 
 io.on('connection',function(client){
-  console.log('Socket connected...');
-    client.emit('initialMessage');
+	console.log('Socket connected...');
+  	client.emit('initialMessage');
 
-      client.on('0', function(){
-        console.log("sad")
-        mySerialPort.write("0");
+  		client.on('0', function(){
+  			console.log("mouse up")
+	 		mySerialPort.write("0");
 
-    });
+		});
 
-    client.on('1', function(){
-      console.log("happy")
+		client.on('1', function(){
+			console.log("mouse down")
 
-      mySerialPort.write("1");
+	 		mySerialPort.write("1");
 
-    });
+		});
 
-  });
+	});
 
 
 
 app.get('/', function(req,res){
-  console.log('serving index.html');
-  res.sendFile(__dirname + '/digitalWrite.html');
+	console.log('serving index.html');
+	res.sendFile(__dirname + '/digitalWrite.html');
 
 });
